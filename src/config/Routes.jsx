@@ -11,7 +11,6 @@ const Routeses = () => {
             <Route path='/:category/:id' element={<Detail/>}/>
             <Route path='/:category' element={<Catalog/>}/>
             <Route path='/' element={<Home/>}/>
-
         </Routes>
     </>
     

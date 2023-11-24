@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import s from "./Header.module.css";
-import { NavLink } from "react-router-dom"; 
+import  "./Header.css";
+import { Link, NavLink } from "react-router-dom"; 
 import logo from '../assets/img/tmovie.png'
 const headerNav = [
   {
@@ -32,16 +32,16 @@ const Header = () => {
     };
 }, []);
   return (
-    <header ref={headerRef} className={s.header}>
-      <div className={`${s.header__wrap} ${s.container}`}>
-        <div className={s.logo}>
+    <header ref={headerRef} className={'header'}>
+      <div className={`header__wrap container`}>
+        <div className={'logo'}>
           <img src={logo} alt="Logo" />
-          <NavLink to={"/"}>tMovies</NavLink>
+          <Link to={"/"}>tMovies</Link>
         </div>
-        <ul className={s.header__nav}>
+        <ul className={'header__nav'}>
           {headerNav.map((item, index) => (
             <li key={index}>
-              <NavLink activeClassName={s.active} className={s.header__link} to={item.path}>
+              <NavLink activeClassName={'active'} className={'header__link'} to={item.path}>
                 {item.display}
               </NavLink>
             </li>

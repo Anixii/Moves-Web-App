@@ -1,23 +1,24 @@
 import React from "react";
 import "./Button.css";
-const Button = (props) => {
+const Button = (props) => { 
   return (
     <button
       className={`btn ${props.class}`}
-      onClick={props.onClick ? () => props.onClick : null}
+      onClick={props.onClick}
     >
       {props.children}
     </button>
   );
 };
-export const OutlinedButton = (props) => {
+export const OutlinedButton = (props) => { 
+
   return (
-    <Button
+    <button
       className={`btn-outline ${props.class}`}
-      onClick={props.onClick ? () => props.onClick : null}
+      onClick={props.onClick}
     >
       {props.children}
-    </Button>
+    </button>
   );
 };
 export default Button;
