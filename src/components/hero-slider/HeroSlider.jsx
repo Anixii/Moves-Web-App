@@ -23,7 +23,8 @@ const HeroSlider = () => {
   }, []);
   return (
     <div className="hero-slide">
-      <Swiper
+      <Swiper 
+      className="swiepr__hero"
         grabCursor={true}
         spaceBetween={0}
         slidesPerView={1} 

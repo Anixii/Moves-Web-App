@@ -1,13 +1,12 @@
 .hero__container {
   padding: 0 1rem;
   box-sizing: border-box;
+  height: auto;
 }
-.hero-slide {
-  height: 100vh;
-  margin-bottom: 3rem;
+.swiepr__hero {
+  height: 100%;
 }
 .hero-slide__item {
-  min-height: 100vh;
   box-sizing: border-box;
   padding: 9rem 0;
   width: 100%;
@@ -120,14 +119,14 @@
 }
 
 @media screen and (max-width: 550px) {
-    .btns > * ~ * {
-      margin-left: 0;
-      margin-top: 1rem;
-    }
-    .hero__container {
-        padding: 0 5%;
-      } 
-      .hero-slide__item__content__info {
-        padding: 0;
-      }
+  .btns > * ~ * {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  .hero__container {
+    padding: 0 5%;
+  }
+  .hero-slide__item__content__info {
+    padding: 0;
+  }
 }

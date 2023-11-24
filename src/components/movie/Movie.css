@@ -1,0 +1,25 @@
+.swiper__slide{ 
+    width: 15%; 
+    height: auto;
+
+} 
+.swiper__slide img{ 
+   width: 100% ;
+   height: auto; 
+   object-fit: cover; 
+   object-position: center;
+
+} 
+@media screen and (max-width:900px) {
+    .swiper__slide{ 
+        width: 30%; 
+        height: auto;
+    } 
+}
+@media screen and (max-width:900px) {
+    .swiper__slide{ 
+        width: 40%; 
+        height: auto;
+
+    } 
+}

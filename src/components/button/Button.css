@@ -34,7 +34,7 @@ button{
     color: #ff0000;
     background-color: white !important;
 }
-.btn.small{ 
+.btn.small, .btn-outline.small{ 
     border-width:2px ;
     padding: .25rem 1.5rem;
     font-size: 1rem;

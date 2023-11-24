@@ -1,0 +1,54 @@
+import React, { useEffect, useState } from 'react'
+import './Movie.css'
+import Button, { OutlinedButton } from '../button/Button'
+import { Link } from 'react-router-dom'
+import config from '../../api/apiConfig' 
+import {Swiper, SwiperSlide} from 'swiper/react'
+import tmdbApi, { category } from '../../api/tmdb'
+const MovieList = (props) => { 
+    const [items, setItems] = useState([])
+    useEffect(() =>{
+        const getList = async() =>{ 
+            let res = null  
+            const params = {} 
+            console.log(res);
+            if(props.type !== 'similar'){ 
+                switch(props.category){ 
+                    case category.movie: 
+                    res = await tmdbApi.getMoviesList(props.type, {params})
+                    break
+                    default: 
+                    res = await tmdbApi.getMoviesList(props.type, {params})
+                    
+                } 
+            } else{ 
+                res = await tmdbApi.similar(props.category, props.id)
+            } 
+            
+            setItems(res.data.results)
+        }
+        getList()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+    return (
+    <> 
+        <div className='movie-list'>
+            <Swiper
+            grabCursor={true} 
+            spaceBetween={10}
+            slidesPerView={"auto"}
+            > 
+                { 
+                    items.map((item,index) =>( 
+                        <SwiperSlide className='swiper__slide' key={index}> 
+                            <img  src={config.w500Image(item.poster_path)} alt="" />
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+        </div>
+    </>
+  )
+}
+
+export default MovieList

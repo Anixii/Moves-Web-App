@@ -17,3 +17,38 @@ body{
   min-height: 100vh;
   background-color:#0f0f0f;
 } 
+.home__container{ 
+  padding: 0 7rem;
+  width: 100%;
+}
+.section__header{     
+  padding: 2rem 0;
+  background-color:hsl(0, 0%, 6%);
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+} 
+.section__header__container{  
+  width: 100%;
+  display: flex; 
+  justify-content: space-between; 
+  align-items:center ;
+}
+.section__title{ 
+  color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .home__container{ 
+    padding: 0 3rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .home__container{ 
+    padding: 0 .5rem;
+  } 
+  .section__title{ 
+    font-size: 17px;
+  }
+}

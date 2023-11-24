@@ -3,7 +3,7 @@ import "./Button.css";
 const Button = (props) => { 
   return (
     <button
-      className={`btn ${props.class}`}
+      className={`btn ${props.className}`}
       onClick={props.onClick}
     >
       {props.children}
@@ -14,7 +14,7 @@ export const OutlinedButton = (props) => {
 
   return (
     <button
-      className={`btn-outline ${props.class}`}
+      className={`btn-outline ${props.className}`}
       onClick={props.onClick}
     >
       {props.children}
