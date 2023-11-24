@@ -33,7 +33,7 @@ const Header = () => {
 }, []);
   return (
     <header ref={headerRef} className={'header'}>
-      <div className={`header__wrap container`}>
+      <div className={`header__wrap header__container`}>
         <div className={'logo'}>
           <img src={logo} alt="Logo" />
           <Link to={"/"}>tMovies</Link>

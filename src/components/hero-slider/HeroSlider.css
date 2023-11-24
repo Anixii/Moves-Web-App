@@ -1,109 +1,133 @@
+.hero__container {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
 .hero-slide {
   height: 100vh;
   margin-bottom: 3rem;
 }
-.hero-slide__item {  
-    height: 100vh;
+.hero-slide__item {
+  min-height: 100vh;
+  box-sizing: border-box;
   padding: 9rem 0;
   width: 100%;
   position: relative;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
 }
-.hero-slide__item::before{ 
-    content: ''; 
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.6);
+.hero-slide__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
-.hero-slide__item::after{ 
-    content: ''; 
-    position:absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%; 
-    height: 100px; 
-    background-image: linear-gradient(to top,  #0f0f0f, rgba(0, 0, 0, 0));
+.hero-slide__item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0));
 }
 
-.hero-slide__item__content{  
-    position: relative;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
+.hero-slide__item__content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.hero-slide__item__content__info{ 
-    width: 55%;
-    padding: 0 3rem; 
-    position: relative;
-} 
+.hero-slide__item__content__info {
+  width: 55%;
+  padding: 0 3rem;
+  position: relative;
+}
 .hero-slide__item__content__info > * ~ * {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
-.title{ 
-    font-size: 5rem;
-    font-weight: 700;
-    line-height: 1;  
-    color: white;
+.title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
 }
-.overview{ 
-    font-weight: 600;
-    color: white;
-} 
+.overview {
+  font-weight: 600;
+  color: white;
+}
 .btns > * ~ * {
-    margin-left: 1rem;
-} 
-.btns, .title, .overview { 
-    opacity: 0; 
-    transform: translateY(-100px);
-    transition: all 0.5s ease;
-}  
-.hero-slide__item__content__poster{ 
-    flex: 1; 
-    display: flex; 
-    justify-content: flex-start; 
-    align-items: center; 
-    position: relative;
+  margin-left: 1rem;
 }
-.hero-slide__item__content__poster img { 
-    width: 400px; 
-    border-radius: 30px; 
-    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;;
-    transform: scale(0);
-    transition: transform 0.7s ease;
-} 
+.btns,
+.title,
+.overview {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 0.5s ease;
+}
+.hero-slide__item__content__poster {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.hero-slide__item__content__poster img {
+  width: 400px;
+  border-radius: 30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transform: scale(0);
+  transition: transform 0.7s ease;
+}
 .hero-slide__item.active .hero-slide__item__content__poster img {
-    transform: scale(1);
+  transform: scale(1);
 }
 .hero-slide__item.active .hero-slide__item__content__info .btns,
 .hero-slide__item.active .hero-slide__item__content__info .title,
 .hero-slide__item.active .hero-slide__item__content__info .overview {
-    transform: translateY(0);
-    opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .hero-slide__item.active .hero-slide__item__content__info .title {
-    transition-delay: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0.3s;
 }
 
 .hero-slide__item.active .hero-slide__item__content__info .overview {
-    transition-delay: 0.6s, 0.6s;
+  transition-delay: 0.6s, 0.6s;
 }
 
 .hero-slide__item.active .hero-slide__item__content__info .btns {
-    transition-delay: 0.9s, 0.9s;
+  transition-delay: 0.9s, 0.9s;
 }
 @media screen and (max-width: 900px) {
-    .hero-slide__item__content__info{ 
-        width: 100%;   
-    }  
-    .title{ 
-        font-size: 4rem;
-    } 
-    .hero-slide__item__content__poster{ 
-        display: none};
-} 
+  .hero-slide__item__content__info {
+    width: 100%;
+  }
+  .title {
+    font-size: 4rem;
+  }
+  .hero-slide__item__content__poster {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+    .btns > * ~ * {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+    .hero__container {
+        padding: 0 5%;
+      } 
+      .hero-slide__item__content__info {
+        padding: 0;
+      }
+}

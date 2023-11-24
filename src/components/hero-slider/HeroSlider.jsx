@@ -62,7 +62,7 @@ const HeroSlideItem = (props) =>{
   }
   return( 
     <div className={`hero-slide__item ${props.className}`} style={{backgroundImage: `url(${background})`}}> 
-      <div className={'hero-slide__item__content container'}>
+      <div className={'hero-slide__item__content hero__container'}>
         <div className="hero-slide__item__content__info"> 
           <div className="title">{item.title}</div> 
           <div className="overview">{item.overview}</div>
