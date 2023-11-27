@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import config from '../../api/apiConfig' 
 import {Swiper, SwiperSlide} from 'swiper/react'
 import tmdbApi, { category } from '../../api/tmdb'
+import MovieCard from '../movie-card/MovieCard'
 const MovieList = (props) => { 
     const [items, setItems] = useState([])
     useEffect(() =>{
@@ -18,7 +19,7 @@ const MovieList = (props) => {
                     res = await tmdbApi.getMoviesList(props.type, {params})
                     break
                     default: 
-                    res = await tmdbApi.getMoviesList(props.type, {params})
+                    res = await tmdbApi.getTvList(props.type, {params})
                     
                 } 
             } else{ 
@@ -41,7 +42,7 @@ const MovieList = (props) => {
                 { 
                     items.map((item,index) =>( 
                         <SwiperSlide className='swiper__slide' key={index}> 
-                            <img  src={config.w500Image(item.poster_path)} alt="" />
+                            <MovieCard item={item} category={props.category}/>
                         </SwiperSlide>
                     ))
                 }
