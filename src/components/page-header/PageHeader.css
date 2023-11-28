@@ -1,0 +1,25 @@
+.page-header{ 
+    padding: 8rem 0 2rem; 
+    text-align: center; 
+    margin-bottom: 2rem; 
+
+    position: relative ;
+    
+    background-repeat:no-repeat;
+    background-size: cover; 
+    background-position: center; 
+}
+.page-header_title{  
+    color: white;
+    position: relative ;
+    z-index: 99;
+} 
+.page-header::after{ 
+    content: "";
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100px;
+    background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0));
+}

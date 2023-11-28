@@ -1,0 +1,9 @@
+input { 
+    border: 0 ;
+    background-color:black; 
+    padding: .3rem 1.5rem; 
+    font-size: 1rem;
+    border-radius:30px; 
+    color: white; 
+    font-family: 'Montserrat',sans-serif;
+}

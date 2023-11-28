@@ -11,7 +11,7 @@
     text-decoration: none; 
     color: white;
 }
-.btn{ 
+.movie-card .btn{ 
     position: absolute; 
     top: 50%; 
     left: 50%;

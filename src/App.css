@@ -17,10 +17,11 @@ body{
   min-height: 100vh;
   background-color:#0f0f0f;
 } 
-.home__container{ 
+.home__container, .catalog_container{ 
   padding: 0 7rem;
   width: 100%;
-}
+} 
+
 .section__header{     
   padding: 2rem 0;
   background-color:hsl(0, 0%, 6%);
@@ -28,7 +29,10 @@ body{
   display: flex;
   justify-content: center; 
   align-items: center;
-} 
+}  
+.section{ 
+
+}
 .section__header__container{  
   width: 100%;
   display: flex; 
