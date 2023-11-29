@@ -1,8 +1,7 @@
 .swiper__slide{ 
-    width: 15%; 
+    width: 15% !important;  
     height: auto;
-
-} 
+}  
 .swiper__slide img{ 
    width: 100% ;
    height: auto; 
@@ -10,16 +9,21 @@
    object-position: center;
 
 } 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1200px) {
     .swiper__slide{ 
-        width: 30%; 
+        width: 20%!important; 
         height: auto;
     } 
 }
 @media screen and (max-width:900px) {
     .swiper__slide{ 
-        width: 40%; 
+        width: 30%!important; 
         height: auto;
-
+    } 
+}
+@media screen and (max-width:500px) {
+    .swiper__slide{ 
+        width: 45%!important;
+        height: auto;
     } 
 }

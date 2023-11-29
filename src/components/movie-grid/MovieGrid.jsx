@@ -67,7 +67,7 @@ const MovieGrid = (props) => {
   };
   return (
     <>
-      <div className="section">
+      <div>
         <MovieSearch keyword={keyword} category={props.category} />
       </div>
       <div className="movie-grid">

@@ -18,7 +18,8 @@ const Detail = () => {
       window.scrollTo(0,0)
     } 
     getDetail()
-  },[category, id])
+  },[category, id]) 
+  console.log(item);
   return (
     <>
       {item&& (   
@@ -29,8 +30,8 @@ const Detail = () => {
                 <div className="movie-content__poster__img" style={{backgroundImage: `url(${config.originalImage(item.poster_path || item.backdrop_path)})`}}></div>
             </div>
             <div className="movie-content__info">
-                <h1 className="title">
-                    {item.title || item.name}
+                <h1 className="title__details">
+                    {item.title || item.name || item.original_title}
                 </h1>
                 <div className="genres">
                     {
@@ -38,11 +39,12 @@ const Detail = () => {
                             <span key={i} className="genres__item">{genre.name}</span>
                         ))
                     }
-                </div>
-                <p className="overview">{item.overview}</p>
+                </div> 
+                <h2>Overview</h2>
+                <p className="overview__details">{item.overview}</p>
                 <div className="cast">
-                    <div className="section__header">
-                        <h2>Casts</h2>
+                    <div className="section__header__details">
+                        <h2 className='details__title'>Casts</h2>
                     </div>
                     <CastList id={item.id}/>
                 </div>
@@ -50,13 +52,13 @@ const Detail = () => {
         </div>
         <div className="container">
             <div className="section mb-3">
-                <VideoList id={item.id}/>
-            </div>
-            <div className="section mb-3">
                 <div className="section__header mb-2">
-                    <h2>Similar</h2>
+                    <h2 className='details__title'>Similar</h2>
                 </div>
                 <Movie category={category} type="similar" id={item.id}/>
+            </div>
+            <div className="section mb-3">
+                <VideoList id={item.id}/>
             </div>
         </div> 
       </>

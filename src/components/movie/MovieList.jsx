@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './Movie.css'
-import Button, { OutlinedButton } from '../button/Button'
-import { Link } from 'react-router-dom'
-import config from '../../api/apiConfig' 
 import {Swiper, SwiperSlide} from 'swiper/react'
 import tmdbApi, { category } from '../../api/tmdb'
 import MovieCard from '../movie-card/MovieCard'
@@ -34,10 +31,11 @@ const MovieList = (props) => {
     return (
     <> 
         <div className='movie-list'>
-            <Swiper
+            <Swiper 
+            className='swipers'
             grabCursor={true} 
             spaceBetween={10}
-            slidesPerView={"auto"}
+            slidesPerView={'auto'}
             > 
                 { 
                     items.map((item,index) =>( 
