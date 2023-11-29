@@ -123,13 +123,18 @@
     grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 10px;
 }
-
-.casts__item__img {
+.casts__item{ 
+    width: 100%;
+    height: 100%;
+}
+.casts__item__img { 
+    /* border-radius: 50%; 
+    height: 60%; 
+    width: 60%; */
     padding-top: 160px;
     background-size: cover;
     margin-bottom: 0.5rem;
 }
-
 .casts__item__name {
     font-size: 0.8rem; 
     color: white;

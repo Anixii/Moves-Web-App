@@ -8,12 +8,13 @@ import { useNavigate} from 'react-router-dom'
 import Button,{OutlinedButton} from '../button/Button'
 import Modal, { ModalContent } from "../modal/Modal";
 const HeroSlider = () => {
-  const [movieItems, setMovie] = useState([]);
+  const [movieItems, setMovie] = useState([]); 
+
   useEffect(() => {
     const getMovies = async () => {
       const params = { page: 1 };
       try {
-        const res = await tmdbApi.getMoviesList(movieType.popular, { params });
+        const res = await tmdbApi.getMoviesList(movieType.popular, { params }); 
         setMovie(res.data.results.slice(0, 6));
       } catch (error) {
         console.log(error);
@@ -52,7 +53,6 @@ const HeroSlideItem = (props) =>{
   const setModal = async() =>{   
     const modal = document.querySelector(`#modal_${item.id}`)
     const video = await tmdbApi.getVideos(category.movie, item.id)
-    console.log(video);
     if(video.data.results.length > 0){ 
       const videoSrc = 'https://www.youtube.com/embed/' + video.data.results[1].key
       modal.querySelector('.modal__content > iframe').setAttribute('src', videoSrc)

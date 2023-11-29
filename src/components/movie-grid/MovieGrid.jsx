@@ -9,7 +9,6 @@ import MovieCard from "../movie-card/MovieCard";
 import Button, { OutlinedButton } from "../button/Button";
 import Input from "../input/Input";
 const MovieGrid = (props) => {
-  console.log(props);
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
@@ -19,7 +18,6 @@ const MovieGrid = (props) => {
       let res = null;
 
       if (keyword === undefined) {
-        console.log("Not a search");
 
         const params = {};
         switch (props.category) {
@@ -30,7 +28,6 @@ const MovieGrid = (props) => {
             res = await tmdbApi.getTvList(tvType.popular, { params });
         }
       } else {
-        console.log("Search");
         const params = {
           query: keyword,
         };

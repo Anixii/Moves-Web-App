@@ -7,7 +7,6 @@ import { category } from '../../api/tmdb'
 import config from '../../api/apiConfig' 
 import noPoseter from '../../assets/img/no-poster.png'
 const MovieCard = ({item,...props}) => {  
-    console.log(props);
     const link = '/' + category[props.category] + '/' + item.id
     const bg = config.w500Image(item.poster_path ? item.poster_path : noPoseter )
     return (
