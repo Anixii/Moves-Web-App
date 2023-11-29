@@ -6,8 +6,9 @@ import Button from '../button/Button'
 import { category } from '../../api/tmdb'
 import config from '../../api/apiConfig' 
 import whiteBg from '../../assets/img/white.jpg'
-const MovieCard = ({item,...props}) => { 
-    const link = '/' +category[props.category] + '/' + item.id
+const MovieCard = ({item,...props}) => {  
+    console.log(props);
+    const link = '/' + category[props.category] + '/' + item.id
     const bg = config.w500Image(item.poster_path || whiteBg)
     return (
     <> 

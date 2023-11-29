@@ -72,7 +72,7 @@ const MovieGrid = (props) => {
       </div>
       <div className="movie-grid">
         {items.map((item, index) => (
-          <MovieCard item={item} key={index} category={category} />
+          <MovieCard item={item} key={index} category={props.category} />
         ))}
       </div>
       {page < total ? (
