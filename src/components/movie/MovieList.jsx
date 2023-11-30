@@ -9,7 +9,7 @@ const MovieList = (props) => {
         const getList = async() =>{ 
             let res = null  
             const params = {} 
-            if(props.type !== 'similar' && props.type !== 'recomendation'){ 
+            if(props.type !== 'similar' && props.type !== 'recomendation' && props.category !== 'person'){ 
                 switch(props.category){ 
                     case category.movie: 
                     res = await tmdbApi.getMoviesList(props.type, {params})
@@ -18,14 +18,15 @@ const MovieList = (props) => {
                     res = await tmdbApi.getTvList(props.type, {params})
                     
                 } 
-            } else{  
-                if(props.type === 'similar'){ 
-                    res = await tmdbApi.similar(props.category, props.id)
-                }else { 
-                    res = await tmdbApi.recomendation(props.category, props.id)
-
-                }
+            } else if(props.type === 'similar'){  
+                res = await tmdbApi.similar(props.category, props.id)
             } 
+            else if(props.type === 'recomendation') { 
+                res = await tmdbApi.recomendation(props.category, props.id)
+            } else { 
+                res = await tmdbApi.person(props.type)
+            }
+        
             
             setItems(res.data.results)
         }
@@ -44,7 +45,7 @@ const MovieList = (props) => {
                 { 
                     items.map((item,index) =>( 
                         <SwiperSlide className='swiper__slide' key={index}> 
-                            <MovieCard item={item} category={props.category}/>
+                            <MovieCard isActor={props.isActor} item={item} category={props.category}/>
                         </SwiperSlide>
                     ))
                 }

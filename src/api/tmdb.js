@@ -2,7 +2,8 @@ import axiosCLient from "./AxiosCLient"
 
 export const category = { 
     movie: 'movie', 
-    tv: 'tv',
+    tv: 'tv', 
+    person: 'person'
 } 
 export const movieType = { 
     upcoming: 'upcoming',
@@ -46,7 +47,11 @@ const tmdbApi ={
     recomendation: (type, id) => { 
         const url =  category[type] + '/' + id + '/recommendations'
         return axiosCLient.get(url, {params:{}})
-    }, 
+    },  
+    person: (id) =>{ 
+        const url = 'person/' + id 
+        return axiosCLient.get(url, {params:{}})
+    }
     
 } 
 export default tmdbApi

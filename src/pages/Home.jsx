@@ -66,6 +66,17 @@ const Home = () => {
           </div>
           <MovieList category={category.tv} type={tvType.top_rated} />
         </div>
+        <div className="section mb-3">
+          <div className="section__header mb-2">
+            <div className="section__header__container">
+              <h2 className="section__title">Popular Actors</h2>
+              <Link to={"/movie"}>
+                <OutlinedButton className="small">View more</OutlinedButton>
+              </Link>
+            </div>
+          </div>
+          <MovieList category={category.person} isActor={true} type={'popular'} />
+        </div>
         
       </div>
     </>

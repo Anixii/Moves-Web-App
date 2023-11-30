@@ -31,7 +31,7 @@ body{
   align-items: center;
 }   
 .section__header__details{ 
-  padding: 2rem 0;
+  padding: 0.5rem 0;
 }
 .section__header__container{  
   width: 100%;

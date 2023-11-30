@@ -13,7 +13,8 @@ const Detail = () => {
 
   useEffect(() => {
     const getDetail = async () => {
-      const response = await tmdbApi.detail(category, id, { params: {} });
+      const response = await tmdbApi.detail(category, id, { params: {} }); 
+      console.log(response);
       setItems(response.data);
       window.scrollTo(0, 0);
     };
@@ -45,7 +46,10 @@ const Detail = () => {
             <div className="movie-content__info">
               <h1 className="title__details">
                 {item.title || item.name || item.original_title}
-              </h1>
+              <div className="details__tagline"> 
+                {item?.tagline}
+              </div>
+              </h1> 
               <div className="genres">
                 {item.genres &&
                   item.genres.slice(0, 5).map((genre, i) => (
@@ -56,6 +60,17 @@ const Detail = () => {
               </div>
               <h2>Overview</h2>
               <p className="overview__details">{item.overview}</p>
+              <div> 
+                <div className="details__info">
+                Status: <span> {item?.status ? item.status : 'Unknown'} </span>
+                </div> 
+                <div className="details__info">
+                  Rate:  <span>{item?.vote_average ? item.vote_average.toFixed(1) : 'Unknown'}</span>
+                </div>
+                <div className="details__info">
+                  Runtime: <span> {item?.runtime ? item.runtime + ' minutes' : 'Unknown'}</span>
+                </div>
+              </div>
               <div className="cast">
                 <div className="section__header__details">
                   <h2 className="details__title">Casts</h2>
