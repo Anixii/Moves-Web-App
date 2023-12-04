@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import tmdbApi from "../../api/tmdb";
-import config from "../../api/apiConfig";
+import config from "../../api/apiConfig"; 
+import NoPoster from '../../assets/img/no-poster.png'
 import "./Detail.css";
 import CastList from "./CastList";
 import VideoList from "./Viedo";
 import Movie from "../../components/movie/MovieList";
+import Preloader from "../../components/Preloader/Preloader";
+import TVSeasons from "./TVSeasons";
 const Detail = () => {
   const { category, id } = useParams();
-
-  const [item, setItems] = useState(null);
-
+  const [isFetch, setFetch] = useState(true)
+  const [item, setItems] = useState(null); 
+  console.log(item);
   useEffect(() => {
     const getDetail = async () => {
       const response = await tmdbApi.detail(category, id, { params: {} }); 
-      console.log(response);
       setItems(response.data);
       window.scrollTo(0, 0);
     };
-    getDetail();
-  }, [category, id]);
+    getDetail(); 
+    setFetch(false)
+  }, [category, id]);  
+  if(isFetch){ 
+    return <Preloader/>
+  }
+  const bg = item?.poster_path ? config.originalImage(item.poster_path || item.backdrop_path) : NoPoster
   return (
     <>
       {item && (
@@ -37,9 +44,7 @@ const Detail = () => {
               <div
                 className="movie-content__poster__img"
                 style={{
-                  backgroundImage: `url(${config.originalImage(
-                    item.poster_path || item.backdrop_path
-                  )})`,
+                  backgroundImage: `url(${bg})`,
                 }}
               ></div>
             </div>
@@ -92,6 +97,12 @@ const Detail = () => {
               </div>
               <Movie category={category} type="recomendation" id={item.id} />
             </div>
+            {item?.seasons && <div className="section mb-3">
+              <div className="section__header mb-2">
+                <h2 className="details__title">Seasons</h2>
+              </div>
+              <TVSeasons item={item}/>
+            </div>}
             <div className="section mb-3">
               <VideoList id={item.id} />
             </div>

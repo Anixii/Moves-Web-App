@@ -20,7 +20,7 @@ const HeroSlider = () => {
         console.log(error);
       }
     };
-    getMovies();
+    getMovies(); 
   }, []);
   return (
     <div className="hero-slide">

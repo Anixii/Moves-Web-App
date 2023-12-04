@@ -4,9 +4,8 @@ import ava from "../../assets/img/avatar.png";
 import config from "../../api/apiConfig";
 import MovieList from "../movie/MovieList";
 import { category } from "../../api/tmdb";
-const Info = ({ item }) => {
+const Info = ({ item,id }) => { 
   const bg = item?.profile_path ? config.w500Image(item.profile_path) : ava;
-  console.log(item);
   return (
     <div className="person__info">
       <div className="person__container">
@@ -54,7 +53,7 @@ const Info = ({ item }) => {
                 </div>
               </div>
             )}
-            {item?.also_known_as && (
+            {item?.also_known_as.length === 0 && (
               <div className="personal__info_item">
                 <div className="personal__info_item_title">Also known as:</div>
                 {item.also_known_as.map((item, index) => (
@@ -64,15 +63,14 @@ const Info = ({ item }) => {
                 ))}
               </div>
             )}
-            {  
-            item?.popularity &&
-            <div className="personal__info_item">
-              <div className="personal__info_item_title">Popularity:</div>
-              <div className="personal__info_item_subtitle">
-                {item.popularity}
+            {item?.popularity && (
+              <div className="personal__info_item">
+                <div className="personal__info_item_title">Popularity:</div>
+                <div className="personal__info_item_subtitle">
+                  {item.popularity}
+                </div>
               </div>
-            </div>
-            }
+            )}
           </div>
         </div>
         <div className="person__content-info">
@@ -86,9 +84,8 @@ const Info = ({ item }) => {
           <div className="person__list">
             <MovieList
               category={category.person}
-              isActor={false}
-              type={'personCredits'}
-              id={item.id}
+              type={"personCredits"} 
+              id={id || item.id}
             />
           </div>
         </div>

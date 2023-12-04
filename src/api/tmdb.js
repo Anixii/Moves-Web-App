@@ -8,7 +8,8 @@ export const category = {
 export const movieType = { 
     upcoming: 'upcoming',
     popular:'popular', 
-    top_rated: 'top_rated'
+    top_rated: 'top_rated', 
+    horror: 'horror'
 } 
 export const tvType = { 
     on_the_air:'on_the_air',
@@ -48,9 +49,9 @@ const tmdbApi ={
         const url =  category[type] + '/' + id + '/recommendations'
         return axiosCLient.get(url, {params:{}})
     },  
-    person: (id) =>{ 
+    person: (id, params) =>{ 
         const url = 'person/' + id 
-        return axiosCLient.get(url, {params:{}})
+        return axiosCLient.get(url, params)
     }, 
     personCombinedCredits:(id) =>{ 
         const url = 'person/' + id + '/combined_credits'

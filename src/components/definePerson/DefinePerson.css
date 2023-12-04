@@ -3,9 +3,15 @@
     display: flex; 
     justify-content: center; 
     align-items: center;
-}  
+}   
+.person__info{ 
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
 .person__container{  
-    max-width: 1280px;
+    max-width: 1320px;
     display: flex;
     height: 100%;
 }
@@ -61,10 +67,89 @@
     color: white;
 } 
 .personal__info_item_title{ 
-    font-weight: 600; 
+    font-weight: 700;  
+    font-size: 18px;
     padding-bottom: 0.2rem;
 } 
 .personal__info_item_subtitle{ 
-    padding: 4px 0;
+    padding: 4px 0; 
+    color: rgb(200, 200, 200);
 }
-
+.person__info .swiper__slide{ 
+    width: 22% !important;  
+    height: auto;
+}  
+.person__list{ 
+    margin: 2rem 0;
+} 
+@media screen and (max-width: 1380px) {
+    .person__container{  
+        max-width: 1020px;
+        display: flex;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .person__container{  
+        max-width: 880px;
+        display: flex;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 920px) {
+    .person__container{  
+        max-width: 660px;
+        display: flex;
+        height: 100%;
+    } 
+    .personal__info_item_title{ 
+        font-weight: 600;  
+        font-size: 16px;
+        padding-bottom: 0.2rem;
+    } 
+    .personal__title{ 
+        font-size: 21px;
+    } 
+    .person__info .swiper__slide{ 
+        width: 38% !important;  
+        height: auto;
+    }   
+    .person__content-info{  
+        padding-left: 1.8rem; 
+    }
+}
+@media screen and (max-width: 670px) {
+    .person__container{  
+        max-width: 550px;
+        display: flex;
+        height: 100%;
+    } 
+}
+@media screen and (max-width: 570px) { 
+    .person__info{ 
+        width: 100%; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+    .person__container{  
+        width: 90%;
+        flex-direction: column;
+    } 
+    .personal__info_item_title{ 
+        font-weight: 600;  
+        font-size: 16px;
+        padding-bottom: 0.2rem;
+    } 
+    .personal__title{ 
+        font-size: 21px;
+    } 
+    .person__info .swiper__slide{ 
+        width: 44% !important;  
+        height: auto;
+    }   
+    .person__content-info{  
+        padding-left: 0;  
+        width: 100%;
+    }
+}

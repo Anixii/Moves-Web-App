@@ -21,7 +21,17 @@ body{
   padding: 0 7rem;
   width: 100%;
 } 
-
+.spinner__container{ 
+  height: 100vh; 
+  display: flex;
+  justify-content: center; 
+  align-items:center ;
+} 
+.spin{ 
+  color: rgb(33, 130, 33); 
+  width: 60px; 
+  height: 60px;
+}
 .section__header{     
   padding: 2rem 0;
   background-color:hsl(0, 0%, 6%);

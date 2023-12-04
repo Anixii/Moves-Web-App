@@ -12,9 +12,13 @@ const headerNav = [
     path: "/movie",
   },
   {
-    display: "TV Series",
+    display: "TV",
     path: "/tv",
-  },
+  }, 
+  {
+    display: 'Actors',
+    path: '/person'
+  }
 ];
 const Header = () => { 
   const headerRef = useRef(null) 

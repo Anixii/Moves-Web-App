@@ -27,16 +27,15 @@ const MovieList = (props) => {
                 if(props.type === 'popular'){ 
                     res = await tmdbApi.person(props.type)
                 }else { 
-                    res = await tmdbApi.personCombinedCredits(props.id)
+                    res = await tmdbApi.personCombinedCredits(props?.id)
                 }
             }
-        
             if(props.type === 'personCredits'){ 
                 setItems(res.data.cast)
             } else { 
                 setItems(res.data.results)
             } 
-            console.log(items);
+            console.log('f',items);
         }
         getList()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -53,7 +52,7 @@ const MovieList = (props) => {
                 { 
                     items.map((item,index) =>( 
                         <SwiperSlide className='swiper__slide' key={index}> 
-                            <MovieCard isActor={props.isActor} item={item} category={props.category}/>
+                            <MovieCard isActor={props.isActor} item={item} category={props.category} mediaType={items?.media_type}/>
                         </SwiperSlide>
                     ))
                 }

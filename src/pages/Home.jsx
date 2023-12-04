@@ -5,10 +5,10 @@ import { OutlinedButton } from "../components/button/Button";
 import "../App.css";
 import MovieList from "../components/movie/MovieList";
 import { category, movieType, tvType } from "../api/tmdb";
-const Home = () => {
+const Home = () => { 
   return (
     <>
-      <HeroSlider />
+      <HeroSlider/>
       <div className="home__container">
         <div className="section mb-3">
           <div className="section__header mb-2">

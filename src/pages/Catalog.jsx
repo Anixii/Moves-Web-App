@@ -5,11 +5,12 @@ import PageHeader from '../components/page-header/PageHeader'
 import MovieGrid from '../components/movie-grid/MovieGrid' 
 import '../App.css'
 const Catalog = () => { 
-  const {category} = useParams()
+  const {category} = useParams() 
+
   return (
     <> 
       <PageHeader> 
-        {category === cate.movie ? "Movies" : 'Tv Series'}
+        {category === cate.movie ? "Movies"  : category === cate.tv ? 'Tv Series' : 'Actors'}
       </PageHeader> 
       <div className='catalog_container'>
         <div className='section'> 
