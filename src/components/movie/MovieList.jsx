@@ -24,11 +24,19 @@ const MovieList = (props) => {
             else if(props.type === 'recomendation') { 
                 res = await tmdbApi.recomendation(props.category, props.id)
             } else { 
-                res = await tmdbApi.person(props.type)
+                if(props.type === 'popular'){ 
+                    res = await tmdbApi.person(props.type)
+                }else { 
+                    res = await tmdbApi.personCombinedCredits(props.id)
+                }
             }
         
-            
-            setItems(res.data.results)
+            if(props.type === 'personCredits'){ 
+                setItems(res.data.cast)
+            } else { 
+                setItems(res.data.results)
+            } 
+            console.log(items);
         }
         getList()
     // eslint-disable-next-line react-hooks/exhaustive-deps

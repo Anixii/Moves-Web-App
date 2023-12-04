@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import tmdbApi from "../../api/tmdb";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import config from "../../api/apiConfig";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Detail.css";
@@ -11,7 +11,7 @@ const CastList = (props) => {
   const { category } = useParams();
 
   const [casts, setCasts] = useState([]);
-
+  console.log(casts);
   useEffect(() => {
     const getCredits = async () => {
       const res = await tmdbApi.credits(category, props.id);
@@ -28,16 +28,19 @@ const CastList = (props) => {
         slidesPerView={"auto"}
       >
         {casts.map((item, index) =>{  
-          const bg = item.profile_path !== null ? config.w500Image(item.profile_path) : ava
+          const bg = item.profile_path !== null ? config.w500Image(item.profile_path) : ava 
+          const link = item.id
           return(
-          <SwiperSlide className="swiper__slide" key={index}>
+          <SwiperSlide className="swiper__slide" key={index}> 
+          <Link className="person__link" to={'/person/' + link}> 
             <div
               className="movie-card"
               style={{ backgroundImage: `url(${bg})` }}
-            >
+              >
             
             </div>
             <h4>{item.title || item.name}</h4>
+              </Link>
           </SwiperSlide>
         )})}
       </Swiper>

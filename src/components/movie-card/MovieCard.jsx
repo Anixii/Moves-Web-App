@@ -12,7 +12,6 @@ const MovieCard = ({item,isActor,...props}) => {
     const bg =  item.poster_path ? config.w500Image(item.poster_path) : noPoseter
     const bag = item.profile_path ? config.w500Image(item.profile_path ) : ava
     // config.w500Image(item.poster_path ? item.poster_path : noPoseter ) 
-    console.log(item);
     return (
     <> 
     <Link className='movie__link' to={link}> 

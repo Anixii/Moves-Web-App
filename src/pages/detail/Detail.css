@@ -89,6 +89,10 @@
     padding-left: 2rem;
     position: relative;
 
+} 
+.person__link{ 
+    color: white; 
+    text-decoration: none;
 }
 @media screen and (max-width: 907px) { 
     .movie-content__info {

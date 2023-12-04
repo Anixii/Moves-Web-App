@@ -51,6 +51,10 @@ const tmdbApi ={
     person: (id) =>{ 
         const url = 'person/' + id 
         return axiosCLient.get(url, {params:{}})
+    }, 
+    personCombinedCredits:(id) =>{ 
+        const url = 'person/' + id + '/combined_credits'
+        return axiosCLient.get(url, {params:{}})
     }
     
 } 

@@ -1,0 +1,70 @@
+.person__main{ 
+    margin-top: 8rem; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}  
+.person__container{  
+    max-width: 1280px;
+    display: flex;
+    height: 100%;
+}
+.person__poster{  
+    flex: 1;
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: flex-start;   
+}
+.person__poster_img{  
+    border-radius: 30px;
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+    /* background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; */
+    object-fit: contain;  
+    object-position: center;
+}  
+.person__poster_img::before {  
+    z-index: 9999;
+    content: '';
+    position: absolute; 
+    top: 0; 
+    left: 0 ;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0); 
+    opacity: 0; 
+    transition:  opacity .3s ease; 
+    border-radius: 30px;
+}  
+.person__content-info{  
+    padding-left: 3rem; 
+    color: white    ;
+    width: 70%;
+}  
+.person__content-info > *{ 
+    padding-bottom: 2 rem;
+}
+.personal__info > *{ 
+    padding-bottom: 1rem;
+}
+.bio__subtitle{   
+    font-size: 14px;
+    margin-top: 1.2rem; 
+    line-height: 22px;
+    /* line-height: 1; */
+} 
+.personal__info{  
+    margin-top: 3rem;
+    color: white;
+} 
+.personal__info_item_title{ 
+    font-weight: 600; 
+    padding-bottom: 0.2rem;
+} 
+.personal__info_item_subtitle{ 
+    padding: 4px 0;
+}
+
