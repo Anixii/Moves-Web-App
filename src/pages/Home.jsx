@@ -75,7 +75,7 @@ const Home = () => {
           <div className="section__header mb-2">
             <div className="section__header__container">
               <h2 className="section__title">Popular Actors</h2>
-              <Link to={"/movie"}>
+              <Link to={"/person"}>
                 <OutlinedButton className="small">View more</OutlinedButton>
               </Link>
             </div>
