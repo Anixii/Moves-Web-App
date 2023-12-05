@@ -11,7 +11,6 @@ const CastList = (props) => {
   const { category } = useParams();
 
   const [casts, setCasts] = useState([]);
-  console.log(casts);
   useEffect(() => {
     const getCredits = async () => {
       const res = await tmdbApi.credits(category, props.id);

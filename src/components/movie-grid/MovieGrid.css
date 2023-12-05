@@ -4,14 +4,28 @@
     grid-template-columns:  repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px; 
     margin-bottom: 3rem;
-} 
+}  
+.movie-no-result{  
+    padding-top: 3rem; 
+    font-weight: 700;
+    font-size: 26px; 
+    color: white;
+}
 .movie-grid__loadmore{  
     margin-bottom: 1rem;
     text-align: center; 
-    
+}
+.movie-search .btn{ 
+    margin-left: 1rem;
 }
 @media screen and (max-width:900px) { 
     .movie-grid{ 
         grid-template-columns:  repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+@media screen and (max-width:395px) { 
+    .movie-search .btn{ 
+        margin-left: 0; 
+        margin-top: 1rem;
     }
 }

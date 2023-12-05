@@ -4,14 +4,13 @@ import ava from "../../assets/img/avatar.png";
 import config from "../../api/apiConfig";
 import MovieList from "../movie/MovieList";
 import { category } from "../../api/tmdb";
-const Info = ({ item,id }) => { 
+const Info = ({ item,id, ...props }) => { 
   const bg = item?.profile_path ? config.w500Image(item.profile_path) : ava;
   return (
     <div className="person__info">
       <div className="person__container">
         <div className="person__side">
           <div className="person__poster">
-            {/* <div className="person__poster_img" style={{backgroundImage: `url(${bg})`}}></div> */}
             <img className="person__poster_img" src={bg} alt="" />
           </div>
 
@@ -82,7 +81,8 @@ const Info = ({ item,id }) => {
             </div>
           </div>
           <div className="person__list">
-            <MovieList
+            <MovieList 
+            setError={props.setError}
               category={category.person}
               type={"personCredits"} 
               id={id || item.id}

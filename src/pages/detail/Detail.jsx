@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import tmdbApi from "../../api/tmdb";
-import config from "../../api/apiConfig"; 
-import NoPoster from '../../assets/img/no-poster.png'
+import config from "../../api/apiConfig";
+import NoPoster from "../../assets/img/no-poster.png";
 import "./Detail.css";
 import CastList from "./CastList";
 import VideoList from "./Viedo";
@@ -11,22 +11,29 @@ import Preloader from "../../components/Preloader/Preloader";
 import TVSeasons from "./TVSeasons";
 const Detail = () => {
   const { category, id } = useParams();
-  const [isFetch, setFetch] = useState(true)
-  const [item, setItems] = useState(null); 
-  console.log(item);
+  const [isFetch, setFetch] = useState(true);
+  const [item, setItems] = useState(null);
+  const [isError, setError] = useState(false)
   useEffect(() => {
     const getDetail = async () => {
-      const response = await tmdbApi.detail(category, id, { params: {} }); 
-      setItems(response.data);
-      window.scrollTo(0, 0);
+      try {
+        const response = await tmdbApi.detail(category, id, { params: {} });
+        setItems(response.data);
+        window.scrollTo(0, 0);
+      } catch (error) {
+        console.log(error); 
+        setError(true)
+      }
     };
-    getDetail(); 
-    setFetch(false)
-  }, [category, id]);  
-  if(isFetch){ 
-    return <Preloader/>
+    getDetail();
+    setFetch(false);
+  }, [category, id]);
+  if (isFetch || isError) {
+    return <Preloader />;
   }
-  const bg = item?.poster_path ? config.originalImage(item.poster_path || item.backdrop_path) : NoPoster
+  const bg = item?.poster_path
+    ? config.originalImage(item.poster_path || item.backdrop_path)
+    : NoPoster;
   return (
     <>
       {item && (
@@ -51,10 +58,8 @@ const Detail = () => {
             <div className="movie-content__info">
               <h1 className="title__details">
                 {item.title || item.name || item.original_title}
-              <div className="details__tagline"> 
-                {item?.tagline}
-              </div>
-              </h1> 
+                <div className="details__tagline">{item?.tagline}</div>
+              </h1>
               <div className="genres">
                 {item.genres &&
                   item.genres.slice(0, 5).map((genre, i) => (
@@ -65,15 +70,25 @@ const Detail = () => {
               </div>
               <h2>Overview</h2>
               <p className="overview__details">{item.overview}</p>
-              <div> 
+              <div>
                 <div className="details__info">
-                Status: <span> {item?.status ? item.status : 'Unknown'} </span>
-                </div> 
-                <div className="details__info">
-                  Rate:  <span>{item?.vote_average ? item.vote_average.toFixed(1) : 'Unknown'}</span>
+                  Status:{" "}
+                  <span> {item?.status ? item.status : "Unknown"} </span>
                 </div>
                 <div className="details__info">
-                  Runtime: <span> {item?.runtime ? item.runtime + ' minutes' : 'Unknown'}</span>
+                  Rate:{" "}
+                  <span>
+                    {item?.vote_average
+                      ? item.vote_average.toFixed(1)
+                      : "Unknown"}
+                  </span>
+                </div>
+                <div className="details__info">
+                  Runtime:{" "}
+                  <span>
+                    {" "}
+                    {item?.runtime ? item.runtime + " minutes" : "Unknown"}
+                  </span>
                 </div>
               </div>
               <div className="cast">
@@ -97,12 +112,14 @@ const Detail = () => {
               </div>
               <Movie category={category} type="recomendation" id={item.id} />
             </div>
-            {item?.seasons && <div className="section mb-3">
-              <div className="section__header mb-2">
-                <h2 className="details__title">Seasons</h2>
+            {item?.seasons && (
+              <div className="section mb-3">
+                <div className="section__header mb-2">
+                  <h2 className="details__title">Seasons</h2>
+                </div>
+                <TVSeasons item={item} />
               </div>
-              <TVSeasons item={item}/>
-            </div>}
+            )}
             <div className="section mb-3">
               <VideoList id={item.id} />
             </div>

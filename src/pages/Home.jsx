@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroSlider from "../components/hero-slider/HeroSlider";
 import { Link } from "react-router-dom";
 import { OutlinedButton } from "../components/button/Button";
 import "../App.css";
 import MovieList from "../components/movie/MovieList";
 import { category, movieType, tvType } from "../api/tmdb";
-const Home = () => { 
+import Preloader from "../components/Preloader/Preloader";
+const Home = () => {  
+  const [isError, setError] = useState(false)
+  if(isError){ 
+    return <Preloader/>
+  }
   return (
     <>
-      <HeroSlider/>
+      <HeroSlider setError={setError}/>
       <div className="home__container">
         <div className="section mb-3">
           <div className="section__header mb-2">
@@ -19,7 +24,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <MovieList category={category.movie} type={movieType.popular} />
+          <MovieList setError={setError} category={category.movie} type={movieType.popular} />
         </div>
 
         <div className="section mb-3">
@@ -31,7 +36,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <MovieList category={category.movie} type={movieType.top_rated} />
+          <MovieList setError={setError} category={category.movie} type={movieType.top_rated} />
         </div>
         <div className="section mb-3">
           <div className="section__header mb-2">
@@ -42,7 +47,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <MovieList category={category.movie} type={movieType.upcoming} />
+          <MovieList setError={setError} category={category.movie} type={movieType.upcoming} />
         </div>
         <div className="section mb-3">
           <div className="section__header mb-2">
@@ -53,7 +58,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <MovieList category={category.tv} type={tvType.popular} />
+          <MovieList setError={setError} category={category.tv} type={tvType.popular} />
         </div>
         <div className="section mb-3">
           <div className="section__header mb-2">
@@ -64,7 +69,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <MovieList category={category.tv} type={tvType.top_rated} />
+          <MovieList setError={setError} category={category.tv} type={tvType.top_rated} />
         </div>
         <div className="section mb-3">
           <div className="section__header mb-2">
@@ -75,7 +80,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <MovieList category={category.person} isActor={true} type={'popular'} />
+          <MovieList setError={setError} category={category.person} isActor={true} type={'popular'} />
         </div>
         
       </div>

@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useParams} from 'react-router-dom' 
 import {category as cate} from '../api/tmdb'
 import PageHeader from '../components/page-header/PageHeader'
 import MovieGrid from '../components/movie-grid/MovieGrid' 
 import '../App.css'
+import Preloader from '../components/Preloader/Preloader'
 const Catalog = () => { 
   const {category} = useParams() 
-
+  const [isError, setError] = useState(false) 
+  if(isError){ 
+    return <Preloader/>
+  }
   return (
     <> 
       <PageHeader> 
@@ -14,7 +18,7 @@ const Catalog = () => {
       </PageHeader> 
       <div className='catalog_container'>
         <div className='section'> 
-          <MovieGrid category={category}/>
+          <MovieGrid setError={setError}  category={category}/>
         </div>
       </div>
     </>

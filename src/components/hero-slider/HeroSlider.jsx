@@ -7,20 +7,21 @@ import 'swiper/css';
 import { useNavigate} from 'react-router-dom'
 import Button,{OutlinedButton} from '../button/Button'
 import Modal, { ModalContent } from "../modal/Modal";
-const HeroSlider = () => {
+const HeroSlider = (props) => {
   const [movieItems, setMovie] = useState([]); 
-
   useEffect(() => {
     const getMovies = async () => {
       const params = { page: 1 };
       try {
         const res = await tmdbApi.getMoviesList(movieType.popular, { params }); 
-        setMovie(res.data.results.slice(0, 6));
+        setMovie(res.data.results.slice(0, 6)); 
       } catch (error) {
+        props.setError(true)
         console.log(error);
       }
     };
     getMovies(); 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="hero-slide">

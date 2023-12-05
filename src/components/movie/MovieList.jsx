@@ -6,8 +6,9 @@ import MovieCard from '../movie-card/MovieCard'
 const MovieList = (props) => { 
     const [items, setItems] = useState([])
     useEffect(() =>{
-        const getList = async() =>{ 
-            let res = null  
+        const getList = async() =>{  
+            try {
+                let res = null  
             const params = {} 
             if(props.type !== 'similar' && props.type !== 'recomendation' && props.category !== 'person'){ 
                 switch(props.category){ 
@@ -35,7 +36,10 @@ const MovieList = (props) => {
             } else { 
                 setItems(res.data.results)
             } 
-            console.log('f',items);
+            } catch (error) {
+                props.setError(true)
+            }
+            
         }
         getList()
     // eslint-disable-next-line react-hooks/exhaustive-deps

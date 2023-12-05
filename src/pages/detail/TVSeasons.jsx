@@ -4,7 +4,7 @@ import icon from "../../assets/img/play-regular-24.png";
 import Button from "../../components/button/Button";
 import config from "../../api/apiConfig";
 import noPoster from "../../assets/img/no-poster.png";
-const TVSeasons = (props) => { 
+const TVSeasons = (props) => {  
   return (
     <div className="season"> 
       {props.item?.seasons.map((item, index) => {

@@ -39,8 +39,8 @@ const Header = () => {
     <header ref={headerRef} className={'header'}>
       <div className={`header__wrap header__container`}>
         <div className={'logo'}>
-          <img src={logo} alt="Logo" />
-          <Link to={"/"}>tMovies</Link>
+          {/* <img src={logo} alt="Logo" /> */}
+          <Link to={"/"}>AnixiMovies</Link>
         </div>
         <ul className={'header__nav'}>
           {headerNav.map((item, index) => (
